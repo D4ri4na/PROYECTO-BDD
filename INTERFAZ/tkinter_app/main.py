@@ -3,18 +3,19 @@ from biblioteca_app import BibliotecaApp
 from autenticacion import Autenticacion
 import tkinter as tk
 from tkinter import messagebox
+
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'conexion_sqlserver')))
-
-from conexion import Conexiones
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from conexion_sqlserver.conexion import Conexiones
+  
 
 def main():
     try:
         auth = Autenticacion()
         root_login = Tk()
-        
+        root_login.title("Inicio de sesión")
         
         def intentar_login():
             username = entry_user.get()
@@ -65,6 +66,7 @@ def iniciar_aplicacion(username: str, password: str, rol: str):
             return
             
         root = Tk()
+        root.title("Biblioteca Universitaria")
         app = BibliotecaApp(root, conexion_db)
         root.mainloop()
         

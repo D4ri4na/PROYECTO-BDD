@@ -1,4 +1,4 @@
-alter view Libros_disponibles as
+CREATE view Libros_disponibles as
 select l.libro_id , l.titulo , c.nombre_categoria ,tp.nombre_tipo , l.editorial , l.copias_totales
 from libro as l
 inner join tipo_texto as tp
@@ -7,7 +7,7 @@ inner join categoria as c
 on l.categoria_id = c.categoria_id
 where l.copias_totales > 0
 
-alter view Libros_mas_prestados as
+CREATE view Libros_mas_prestados as
 select top 10 l.libro_id , l.titulo , c.nombre_categoria , tp.nombre_tipo ,l.editorial , sum(dp.cantidad) as prestamos
 from libro as l
 inner join detalle_prestamo as dp

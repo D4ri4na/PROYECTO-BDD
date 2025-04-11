@@ -1,5 +1,5 @@
 --TRIGGER MODIFICAR EL STOCK SEGUN LA NECESIDAD
-create TRIGGER actualizar_stock
+CREATE TRIGGER actualizar_stock
 ON detalle_prestamo
 AFTER INSERT
 AS
@@ -9,7 +9,6 @@ BEGIN
         SELECT 1
         FROM inserted i
         JOIN libro l ON i.libro_id = l.libro_id
-        WHERE i.cantidad > l.copias_totales
     )
     BEGIN
         RAISERROR('La cantidad solicitada excede el stock disponible.', 16, 1);

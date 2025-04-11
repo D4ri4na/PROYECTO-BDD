@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 class Autenticacion:
     def __init__(self):
-        self.server = 'LENOVO1023'
+        self.server = 'MSI\\MSSQLSERVER01'
         self.database = 'BibliotecaUniversitaria'
         
     def verificar_credenciales(self, username, password):
